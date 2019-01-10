@@ -1,0 +1,27 @@
+
+<div class="from-sign-in">
+  <p class="sign-in-header">Sign up</p>
+ 
+  <form method="POST" action="/auth/signup">
+
+    <div class="field" >
+     {{!-- <label>Username</label> --}}
+      <input class="sign-log-input" type="text" name="username" placeholder="username"/>
+    </div>
+
+    <div class="field" >
+    {{!-- <label>Password</label> --}}
+      <input class="sign-log-input" type="password" name="password" placeholder="password"/>
+    </div>
+     {{#if messages.length}}
+        <ul class="flash">
+        {{#each messages}}<li class="signlog-li">{{this}}</li>{{/each}}
+        </ul>
+    {{/if}}
+    <div class="field submit">
+      <button class="signup-button" type="submit">Sign up</button>
+  </div>
+ 
+</form>
+</div>
+

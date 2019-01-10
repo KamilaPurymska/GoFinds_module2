@@ -1,0 +1,27 @@
+<div class="top-image">
+    <img class="logo" src="/images/logo1.png" alt="">
+  </div>
+
+<div class="home-page loaded">
+
+  <form method="POST" action="/" enctype="multipart/form-data" class="form" id="myForm">
+      <input type='file' onchange="submited()" name='image' class="inputfile" accept="image/*" />
+  </form>
+</div>
+
+<div class="loading isHidden">
+  <div class="loader-one">Loading...</div>
+</div>
+
+
+<script src="/scripts/index.js"></script>
+<script>
+  const button = document.querySelector('button');
+  const div = document.querySelector('.loaded');
+  const loading = document.querySelector('.isHidden');
+  const submited = () =>{
+     document.getElementById("myForm").submit(); 
+     div.classList.add('isLoading')
+    loading.classList.remove('isHidden')
+  }
+</script>

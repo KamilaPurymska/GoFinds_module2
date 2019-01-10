@@ -1,0 +1,26 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/scripts/search.js"></script>
+
+<div class="nav-pages">
+    {{!--<img class="img-nav-pages" src="/images/logo3.png" alt="" /> --}}
+    <p class="friends-p">Following</p>
+</div>
+<div class="search">
+    <div class="input-users">
+        <input type="text" placeholder="Search for users...">
+    </div>
+    <div class="search-results"> </div>
+</div>
+
+<ul class="friend-list-ul">
+{{#each friends}}
+    <li class="friends-list">
+        <a href="/users/{{this.friendId}}">{{this.friendName}}</a>
+        <form class="form-addfriend" action="/users/{{this.friendId}}/remove_friend" method="POST">
+            <button class="remove-friend" type="submit"> 
+                <img class="remove-friend" src="/images/delete-user.svg" alt="">
+            </button>
+        </form>
+    </li>
+{{/each}}
+</ul>

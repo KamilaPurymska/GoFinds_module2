@@ -1,0 +1,22 @@
+<div class="nav-pages">
+    <p class="friends-p">Edit comment</p>
+</div>
+
+<div class="edit-container">
+<form method="POST" action="/post/{{post.id}}/edit">
+  <div>
+    <label class="edit">Description</label>
+    <textarea class="edit-text" type="text" rows="5" cols="33" name="comment">{{post.comment}}</textarea>
+  </div>
+
+  <div class="field submit">
+    <button class="signup-button" type="submit">edit comment</button>
+  </div>
+</form>
+
+{{#if messages.length}}
+<ul class="flash">
+  {{#each messages}}<li>{{this}}</li>{{/each}}
+</ul>
+{{/if}}
+</div>

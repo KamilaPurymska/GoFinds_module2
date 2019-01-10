@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,600i" rel="stylesheet">
+  </head>
+  <body>
+    {{{body}}}
+    <nav>
+      <ul class="nav-bar">
+        {{!--<li class="nav-li"><a href="/"><img class="nav-buttons" src="/images/add.svg" alt=""></a></li>--}}
+        {{#unless currentUser}}
+        <li class="nav-li signlogtext"><a href="/auth/signup">Sign up</a></li>
+        <li class="nav-li signlogtext"><a href="/auth/login">Log in</a></li>
+        {{else}}
+        <li class="nav-li"><a href="/"><img class="nav-buttons" src="/images/add.svg" alt=""></a></li>
+        <li class="nav-li"><a href="/users"><img class="nav-buttons" src="/images/users.svg" alt=""/></a></li>
+        <li class="nav-li"><a href="/users/{{currentUser._id}}"><img class="nav-buttons" src="/images/history.svg" alt=""></a></li>
+        <li class="nav-li">
+         <form action="/auth/logout" method="POST">
+            <button class="logout-button" type="submit" style="border:none; background: #fafafa"><img class="logout-butt" src="/images/logout.svg" alt=""></button>
+          </form>
+        </li>
+        {{/unless}}
+      </ul>
+    </nav>
+  </body>
+</html>

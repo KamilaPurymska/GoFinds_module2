@@ -1,0 +1,19 @@
+<div class="image-div">
+    <img class="post-det-im" src="{{post.imageUrl}}">
+</div>
+
+<div class="post-det-desc">
+    <h1 class="title">{{post.title}}</h1>
+    <p class="post-comment">{{post.comment}}</p>
+    <p>{{post.description}}</p>
+    {{#if isOwner}}
+    <div class="buttons-post">
+        <a class="edit-comment" href="/post/{{post._id}}/edit">Edit comment</a>
+        <form class="remove-comment" action="/post/{{post._id}}/remove" method="POST">
+            <button class="form-style" type="submit">Remove from history</button>
+        </form>
+    </div>
+    {{/if}}
+</div>
+
+

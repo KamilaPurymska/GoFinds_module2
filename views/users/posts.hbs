@@ -1,0 +1,12 @@
+<div class="nav-pages">
+    <p class="friends-p">History</p>
+</div>
+<ul class="friend-list-ul">
+    {{#each posts}}
+        <li class="posts-list"><a href="/post/{{this._id}}">{{this.title}}</a></li>
+    {{/each}}
+</ul>
+
+{{!--<form method="POST" action="/users/{{userId}}/add_friend">
+    <button type="submit">Add friend</button>
+</form>--}}

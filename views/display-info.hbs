@@ -1,0 +1,43 @@
+<div class="image-div">
+<img src="{{imageUrl}}" alt="" class="info-image">
+</div>
+
+
+<div class="post-det-desc">
+    <h1 name="title" class="title">{{title}}</h1>
+    <input type="button" onclick="growDiv()" value="Read more" id="more-button">
+    <div id="grow">
+        <div class="measuringWrapper">
+            <div name="description" class="text">{{content}}</div>
+        </div> 
+    </div>
+    <form action="/post/create" method="POST" class="create-form">
+        <input type="hidden" name="title" value="{{title}}">
+    <input type="hidden" name="description" value="{{content}}">
+    <textarea class="description-area" type="text" rows="5" cols="33" name="comment" placeholder="Add a comment..."></textarea>
+    <input type="hidden" name="imageUrl" value="{{imageUrl}}">
+    <button class="signup-button comment" type="submit">add to history</button>
+    </form>
+    
+    <ul class="recommendations-ul">
+        {{#if orderedList}}
+        <p class="reccom-p">As you visited {{title}} we recommend you also visit:</p>
+        {{/if}}
+        {{#each orderedList}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    </div>
+
+<script>
+function growDiv() {
+    var growDiv = document.getElementById('grow');
+    if (growDiv.clientHeight) {
+      growDiv.style.height = 0;
+    } else {
+      var wrapper = document.querySelector('.measuringWrapper');
+      growDiv.style.height = wrapper.clientHeight + "px";
+    }
+document.getElementById("more-button").value=document.getElementById("more-button").value=='Read more'?'Read less':'Read more';
+}
+</script>
